@@ -18,4 +18,8 @@ The build stage compiles the application and test project, also restoring their 
 
 **Deliberate defect:** The Ace rank mapping was temporarily changed from `A` to `2`. The Ace-of-Hearts test failed with an expected-versus-actual URL string mismatch, identifying `ImageUrl_MapsAceOfHearts` as the failing test. This confirms that an incorrect card-image mapping is detected by the automated test suite. The defect was then removed; it is not present in the submitted application.
 
+## Captured failing-test evidence
+
+With the Ace rank deliberately changed to `2`, the local run produced 1 failure and 4 successes. The failing test was `CardGenerator.Tests.CardTests.ImageUrl_MapsAceOfHearts`; it expected `https://deckofcardsapi.com/static/img/AH.png` and received `https://deckofcardsapi.com/static/img/2H.png`.
+
 These are local test-runner results, not GitHub-hosted Actions executions. To complete hosted evidence, push the clean baseline and capture the successful Actions run, then temporarily change the Ace mapping, push that change and capture the failed run, and finally restore the mapping and push the fix. Add the repository URL and screenshots of each run here after publication.
